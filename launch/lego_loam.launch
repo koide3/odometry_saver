@@ -1,0 +1,22 @@
+<launch>
+    <arg name="bag_filename"/>
+    <arg name="dst_directory" default="/tmp/odometry"/>
+    <arg name="points_topic" default="/velodyne_points"/>
+    <arg name="odom_topic" default="/integrated_to_init"/>
+    <arg name="endpoint_frame" default="base_link"/>
+    <arg name="origin_frame" default="map"/>
+
+    <param name="use_sim_time" value="true"/>
+
+    <node pkg="odometry_saver" type="odometry_saver" name="odometry_saver" output="screen">
+        <param name="dst_directory" value="$(arg dst_directory)"/>
+        <param name="origin_frame" value="$(arg origin_frame)"/>
+        <param name="endpoint_frame" value="$(arg endpoint_frame)"/>
+        <remap from="/points" to="$(arg points_topic)"/>
+        <remap from="/odom" to="$(arg odom_topic)"/>
+    </node>
+
+    <include file="$(find lego_loam)/launch/run_offline.launch">
+        <arg name="bag_filename" value="$(arg bag_filename)"/>
+    </include>
+</launch>

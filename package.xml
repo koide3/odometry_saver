@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>odometry_saver</name>
+  <version>0.0.0</version>
+  <description>The odometry_saver package</description>
+
+  <maintainer email="k.koide@aist.go.jp">koide</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://github.com/koide3/odometry_saver</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>pcl_ros</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>ndt_omp</depend>
+
+  <export>
+  </export>
+</package>
