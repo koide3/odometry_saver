@@ -18,7 +18,6 @@
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
-#include <pcl/ros/conversions.h>
 
 template<typename T>
 void save_data(const std::string& dst_directory, const T& data);
